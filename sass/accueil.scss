@@ -1,1 +1,51 @@
-@import "./layout/header";
+@mixin flexbox-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin w-h ($width: 0, $height: 0) {
+    width: $width;
+    height: $height;
+}
+
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin center {
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin roboto ($size: 16px, $weight: 500) {
+    font-size: $size;
+    font-weight: $weight;
+    font-family: 'Roboto', sans-serif;
+}
+
+$primary-color: #9356DC;
+$second-color: #FF79DA;
+$third-color: #99E2D0;
+$fourth-color: #008766;
+$iconback-color: #353535;
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background: #f6f6f6;
+}
+
+.main {
+    margin: 0;
+    padding: 0;
+    @include flexbox-center;
+    flex-direction: column;
+}

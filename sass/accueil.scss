@@ -4,11 +4,6 @@
     align-items: center;
 }
 
-@mixin w-h ($width: 0, $height: 0) {
-    width: $width;
-    height: $height;
-}
-
 @mixin flex-row {
     display: flex;
     flex-direction: row;
@@ -18,10 +13,30 @@
     display: flex;
     flex-direction: column;
 }
-
 @mixin center {
     align-items: center;
     justify-content: center;
+}
+
+@mixin w-h ($width: 0, $height: 0) {
+    width: $width;
+    height: $height;
+}
+
+@mixin button-hover {
+    opacity: 0.8;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.6);    
+}
+
+@mixin button-style {
+    opacity: 1;
+    background: $gradient;
+    color: white;
+    padding: 0 20px;
+    border-radius: 200px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);  
 }
 
 @mixin roboto ($size: 16px, $weight: 500) {
@@ -35,17 +50,294 @@ $second-color: #FF79DA;
 $third-color: #99E2D0;
 $fourth-color: #008766;
 $iconback-color: #353535;
+$gradient : linear-gradient(180deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 100%);
+
+
 
 
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    background: #f6f6f6;
+    background: #FFFFFF;
 }
+
+* a {
+    text-decoration: none;
+}
+
+
+
+input {
+    border: none;
+    outline: none;
+}
+
+
+h1 {
+    font-size: 30px;
+    font-weight: 100;
+    font-family: 'Shrikhand', sans-serif;
+}
+
 
 .main {
     margin: 0;
     padding: 0;
     @include flexbox-center;
+    flex-direction: column; 
+}
+
+.header {
+    box-shadow: 0px 5px 6px 0px rgba(0,0,0,0.20);
+    position: relative;
+    @include flexbox-center();
+    height: 80px;
+    width: 100%;
+    &__logo {
+        font-family: 'Shrikhand', cursive;
+        margin-top: 20px;
+        color: black;    
+    }
+}
+
+nav {
+    @include w-h ( 100%, 50px);
+    display: flex;
+    @include center;
+    background-color: #EAEAEA;
+
+    .fa-location-dot {
+        color: $iconback-color;
+    }
+
+    input {
+        text-align: center;
+        @include w-h(145px, 20px);
+        @include roboto(16px, 500);
+        background-color: #EAEAEA;
+        padding-left: 8px;
+    }
+
+    input::placeholder {
+        color: $iconback-color;
+    }
+}
+
+.location {
+    width: 100%;
+    @include flexbox-center();
+    background: #EAEAEA;
+    color: $iconback-color;
+    
+
+    &__city {
+        margin-left: 13px;
+        @include roboto (16px, 500);
+        color: $iconback-color;
+    }
+}
+
+.hero {
+    background: #FAFAFA;
+    width: 100%;
+    &__container {
+        width: 100%;
+        padding: 20px;
+        @include flexbox-center();
+        @include flex-column();
+        padding: 50px 0;
+    }
+    &__title {
+        text-align: center;
+        max-width: 250px;
+        margin: 0;
+    }
+    &__text {
+        text-align: center;
+        @include roboto(16px, 300);
+        max-width: 420px;
+        padding: 15px;
+    }
+    &__button {
+        @include button-style;
+        &:hover {
+            @include button-hover;
+        }
+    }
+}
+
+.process__contain {
+    padding: 25px 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    display: flex;
     flex-direction: column;
 }
+
+.process {
+    width: 95%;
+    max-width: 1200px;
+    background-color: white;
+    padding: 0 ;   
+    display: flex;
+    flex-direction: column ;
+    &__title {
+        margin-left: 20px;
+    }
+    &__step {
+        display: flex;
+        align-items: center;
+        background: #f6f6f6;
+        @include w-h (auto, 72px);
+        margin: 10px 0px 10px 25px;
+        border-radius: 20px;
+        position: relative;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.16);
+        &:hover {
+            @include button-hover;
+            background: lighten(#f7f7f7, 3%);
+        }
+    }
+        &__number {
+                background: $primary-color;
+                color: white;
+                position: absolute;
+                padding: 3px 8px 3px 8px;
+                border-radius: 500px;
+                transform: translateX(-50%);
+            }
+        &__icon {
+            color: #7E7E7E;
+            margin: 0 20px;
+        }
+        &__text {
+            @include roboto(16px, 500 );
+        }
+    &__steps {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        
+    }
+}
+
+.fa-store {
+    content: "";
+    color: #9356DC;
+  }
+
+@media screen and (min-width: 767px) {
+    .process__step {
+        width: 100%;
+    }
+    .process__steps {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        width: 100%;
+    }
+}
+.restaurants {
+    margin: 0;
+    background: #f6f6f6;
+    padding: 20px;
+    width: 100%;
+    @include flexbox-center;
+    flex-direction: column;
+  
+}
+
+.restaurants_title {
+    align-items: flex-start;
+}
+.restaurant {
+  
+    &__cards {
+        display: grid;
+        grid-template-rows: repeat(4,1fr) ;
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+        padding: 20px;
+        
+    }
+    &__card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        width: 100%;
+        border-radius: 20px;
+        transform: scale(1.0);
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+        &-new {
+            @include flexbox-center;;
+            position: absolute;
+            background: #99e2d0;
+            top: 20px; right: 20px;
+            & p {
+                color: #1b6150;
+                padding: 10px 20px;
+                margin: 0;
+            }
+        }
+        &:hover {
+            transition: .5s;
+            transform: scale(1.02);
+            box-shadow: 0px 0px 10px 2px rgba(147, 86, 220,0.6);
+        }
+        &-image {
+            width: 100%;
+            height: 190px;
+            & > img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 20px 20px 0 0;
+            }
+        }
+    }
+    &__block {
+        background: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 90px;
+        border-radius: 0 0 20px 20px;
+        &-info {
+            color: black;
+            margin-left: 20px;
+            & > :first-child {
+                font-weight: 700;
+            }
+        }
+        &-hearth {
+            @include flexbox-center;
+            margin-right: 20px;
+            width: 30px;
+        }
+        .heart {
+            width: 30px;
+            stroke-width: 30;
+            stroke: black;
+            fill: white;
+            cursor: pointer;
+          }
+          .heart-full {
+          position: absolute;
+          fill: url(#text-fill);
+          
+        }
+        .heart-empty {
+            width: 50px;
+            position: relative; 
+            &:hover {
+              opacity: 0;
+              transition: 0.5s;
+            }
+        }
+    }
+}
+
+

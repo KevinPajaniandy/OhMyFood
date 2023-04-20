@@ -37,6 +37,10 @@
     padding: 0 20px;
     border-radius: 200px;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);  
+    display: flex ;
+    height: 50px ;
+    align-items: center;
+    
 }
 
 @mixin roboto ($size: 16px, $weight: 500) {
@@ -45,6 +49,7 @@
     font-family: 'Roboto', sans-serif;
 }
 
+// - COULEUR - //
 $primary-color: #9356DC;
 $second-color: #FF79DA;
 $third-color: #99E2D0;
@@ -53,19 +58,17 @@ $iconback-color: #353535;
 $gradient : linear-gradient(180deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 100%);
 
 
-
-
 body {
-    font-family: 'Roboto', sans-serif;
+    min-width: 375px;
     margin: 0;
-    background: #FFFFFF;
+    font-family: 'roboto', sans-serif;
+    box-sizing: border-box;
 }
 
 * a {
     text-decoration: none;
+    color: black;
 }
-
-
 
 input {
     border: none;
@@ -91,8 +94,7 @@ h1 {
     box-shadow: 0px 5px 6px 0px rgba(0,0,0,0.20);
     position: relative;
     @include flexbox-center();
-    height: 80px;
-    width: 100%;
+    @include w-h(100%,80px);
     &__logo {
         font-family: 'Shrikhand', cursive;
         margin-top: 20px;
@@ -102,8 +104,7 @@ h1 {
 
 nav {
     @include w-h ( 100%, 50px);
-    display: flex;
-    @include center;
+    @include flexbox-center();
     background-color: #EAEAEA;
 
     .fa-location-dot {
@@ -166,12 +167,14 @@ nav {
     }
 }
 
+
+/** process**/
+
 .process__contain {
     padding: 25px 0;
     width: 100%;
     background-color: #FFFFFF;
-    display: flex;
-    flex-direction: column;
+    @include flex-column()
 }
 
 .process {
@@ -179,8 +182,7 @@ nav {
     max-width: 1200px;
     background-color: white;
     padding: 0 ;   
-    display: flex;
-    flex-direction: column ;
+    @include flex-column();
     &__title {
         margin-left: 20px;
     }
@@ -198,17 +200,17 @@ nav {
             background: lighten(#f7f7f7, 3%);
         }
     }
-        &__number {
-                background: $primary-color;
-                color: white;
-                position: absolute;
-                padding: 3px 8px 3px 8px;
-                border-radius: 500px;
-                transform: translateX(-50%);
-            }
-        &__icon {
-            color: #7E7E7E;
-            margin: 0 20px;
+    &__number {
+        background: $primary-color;
+        color: white;
+        position: absolute;
+        padding: 3px 8px 3px 8px;
+        border-radius: 500px;
+        transform: translateX(-50%);
+        }
+    &__icon {
+        color: #7E7E7E;
+        margin: 0 20px;
         }
         &__text {
             @include roboto(16px, 500 );
@@ -216,8 +218,7 @@ nav {
     &__steps {
         display: flex;
         justify-content: center;
-        flex-direction: column;
-        
+        flex-direction: column; 
     }
 }
 
@@ -237,107 +238,104 @@ nav {
         width: 100%;
     }
 }
-.restaurants {
-    margin: 0;
-    background: #f6f6f6;
-    padding: 20px;
-    width: 100%;
-    @include flexbox-center;
+
+/** Restaurants **/
+
+.restaurants__contain {
+    @include w-h(100%,auto);
+    background: #fafafa;
+    padding-bottom: 64px;
+    h2 {
+        padding: 48px 0 20px 0;
+        margin-left: 20px;
+        @include roboto(24px,700);
+    }
+}
+
+.container__card__resto {
+    @include w-h(375px,auto);
+    display: flex;
     flex-direction: column;
-  
+    align-items: center;
+    gap: 40px;
 }
 
-.restaurants_title {
-    align-items: flex-start;
-}
-.restaurant {
-  
-    &__cards {
-        display: grid;
-        grid-template-rows: repeat(4,1fr) ;
-        grid-template-columns: 1fr;
-        grid-gap: 20px;
-        padding: 20px;
-        
+.card__resto {
+    position: relative;
+    @include w-h(90%,251px);
+    border-radius: 25px;
+    background: #FFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    color: black;
+    &:hover {
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
     }
-    &__card {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-end;
-        width: 100%;
-        border-radius: 20px;
-        transform: scale(1.0);
-        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
-        &-new {
-            @include flexbox-center;;
-            position: absolute;
-            background: #99e2d0;
-            top: 20px; right: 20px;
-            & p {
-                color: #1b6150;
-                padding: 10px 20px;
-                margin: 0;
-            }
+    &__info {
+        h3 {
+            @include roboto(18px,700);
+            line-height: 21px;
         }
+        p {
+            @include roboto(17px,300);
+            line-height: 25px;
+        }
+    }
+    &__img{
+        @include w-h(100%,174px);
+        border-radius: 25px 25px 0 0;
+        object-fit: cover;
+    }
+    &__info {
+        @include w-h(80%,auto);
+        padding: 12px 0 0 13px;
+        font-style: $primary-color;
+        h3, p {
+            margin: 0;
+        }
+    }
+    &__new {
+        background: $third-color;
+        color: darken($color: $third-color, $amount: 40);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+        border-radius: 2px 2px 2px 2px;
+        @include w-h(80px,29px);
+        @include flexbox-center;
+        @include roboto(14px,500);
+        position: absolute;
+        margin: 0;
+        right: 15px;
+        top: 15px
+    }
+}
+
+/** Heart Card **/
+
+.heart__container {
+    & i {
+        display: flex;
+        font-size: 28px;
+        margin-left: 285px;
+        margin-top: -42px;
+    }
+    & .heart__full {
+        background-image: $gradient;
+        background-clip: text;
+        -webkit-text-fill-color:transparent;
+        -webkit-background-clip: text;
+        opacity: 0;
+        margin-top: -28px;
+    }
+
+    &:hover .heart__full {
+        opacity: 1;
+    }
+    & .heart__empty {
+        position: relative; 
         &:hover {
-            transition: .5s;
-            transform: scale(1.02);
-            box-shadow: 0px 0px 10px 2px rgba(147, 86, 220,0.6);
-        }
-        &-image {
-            width: 100%;
-            height: 190px;
-            & > img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 20px 20px 0 0;
-            }
+          opacity: 0;
+          transition: 0.5s;
         }
     }
-    &__block {
-        background: white;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        height: 90px;
-        border-radius: 0 0 20px 20px;
-        &-info {
-            color: black;
-            margin-left: 20px;
-            & > :first-child {
-                font-weight: 700;
-            }
-        }
-        &-hearth {
-            @include flexbox-center;
-            margin-right: 20px;
-            width: 30px;
-        }
-        .heart {
-            width: 30px;
-            stroke-width: 30;
-            stroke: black;
-            fill: white;
-            cursor: pointer;
-          }
-          .heart-full {
-          position: absolute;
-          fill: url(#text-fill);
-          
-        }
-        .heart-empty {
-            width: 50px;
-            position: relative; 
-            &:hover {
-              opacity: 0;
-              transition: 0.5s;
-            }
-        }
-    }
+ 
 }
-
-

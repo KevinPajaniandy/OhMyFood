@@ -289,7 +289,6 @@ nav {
     &__info {
         @include w-h(80%,auto);
         padding: 12px 0 0 13px;
-        font-style: $primary-color;
         h3, p {
             margin: 0;
         }
@@ -315,6 +314,7 @@ nav {
     & i {
         display: flex;
         font-size: 28px;
+        transition: all 300ms ease-in-out;
         margin-left: 285px;
         margin-top: -42px;
     }

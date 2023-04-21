@@ -267,7 +267,6 @@ nav input::placeholder {
   width: 80%;
   height: auto;
   padding: 12px 0 0 13px;
-  font-style: #9356DC;
 }
 .card__resto__info h3, .card__resto__info p {
   margin: 0;
@@ -295,6 +294,7 @@ nav input::placeholder {
 .heart__container i {
   display: flex;
   font-size: 28px;
+  transition: all 300ms ease-in-out;
   margin-left: 285px;
   margin-top: -42px;
 }

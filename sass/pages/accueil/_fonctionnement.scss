@@ -1,0 +1,72 @@
+
+/** process**/
+
+.process__contain {
+    padding: 25px 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    @include flexbox-center;
+    flex-direction: column;
+}
+
+.process {
+    width: 100%;
+    max-width: 1200px;
+    background-color: white;
+    padding: 0 ;   
+    @include flex-column();
+    &__title {
+        margin-left: 20px;
+    }
+    &__step {
+        display: flex;
+        align-items: center;
+        background: #f6f6f6;
+        @include w-h (auto, 72px);
+        margin: 10px 20px;
+        border-radius: 20px;
+        position: relative;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.16);
+        &:hover {
+            @include button-hover;
+            background: lighten(#f7f7f7, 3%);
+        }
+    }
+    &__number {
+        background: $primary-color;
+        color: white;
+        position: absolute;
+        padding: 3px 8px 3px 8px;
+        border-radius: 500px;
+        transform: translateX(-50%);
+        }
+    &__icon {
+        color: #7E7E7E;
+        margin: 0 20px;
+        }
+        &__text {
+            @include roboto(16px, 500 );
+        }
+    &__steps {
+        display: flex;
+        justify-content: center;
+        flex-direction: column; 
+    }
+}
+
+.fa-store {
+    content: "";
+    color: #9356DC;
+  }
+
+@media screen and (min-width: 767px) {
+    .process__step {
+        width: 100%;
+    }
+    .process__steps {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        width: 100%;
+    }
+}

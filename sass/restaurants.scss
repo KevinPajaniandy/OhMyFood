@@ -1,133 +1,14 @@
-@mixin flexbox-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+@import "./utils/variables";
+@import "./utils/mixins";
 
-@mixin flex-row {
-    display: flex;
-    flex-direction: row;
-}
+@import "./base/reset";
 
-@mixin flex-column {
-    display: flex;
-    flex-direction: column;
-}
-@mixin center {
-    align-items: center;
-    justify-content: center;
-}
+@import "./layout/header";
+@import "./layout/footer";
 
-@mixin w-h ($width: 0, $height: 0) {
-    width: $width;
-    height: $height;
-}
+@import "./components/button";
+@import "./components/heart";
 
-@mixin button-hover {
-    opacity: 0.8;
-    cursor: pointer;
-    transition: .3s;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.6);    
-}
-
-@mixin button-style {
-    opacity: 1;
-    background: $gradient;
-    color: white;
-    padding: 0 20px;
-    border-radius: 200px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);  
-    display: flex ;
-    height: 50px ;
-    align-items: center;
-    
-}
-
-@mixin roboto ($size: 16px, $weight: 500) {
-    font-size: $size;
-    font-weight: $weight;
-    font-family: 'Roboto', sans-serif;
-}
-
-// - COULEUR - //
-$primary-color: #9356DC;
-$second-color: #FF79DA;
-$third-color: #99E2D0;
-$fourth-color: #008766;
-$iconback-color: #353535;
-$gradient : linear-gradient(180deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 100%);
-
-
-body {
-    margin: 0;
-    font-family: 'roboto', sans-serif;
-
-}
-
-a {
-    text-decoration: none;
-    color: white;
-}
-
-input {
-    border: none;
-    outline: none;
-}
-
-
-h1 {
-    font-size: 30px;
-    font-weight: 100;
-    font-family: 'Shrikhand', sans-serif;
-}
-
-
-.main {
-    margin: 0;
-    padding: 0;
-
-}
-
-
-/** Footer **/
-
-.footer{
-    width: 100%;
-    background-color: $iconback-color;
-    @include flexbox-center;
-    &__bloc {
-        display: inline;
-        padding: 0 40px;
-        width: 100%;
-        max-width: 1200px;
-        & .logo{
-            font-family: 'shrikhand', cursive;
-            font-size: 20px;
-            padding: 15px 0;
-        }
-        &-links {
-            display: inline-flex;
-            flex-direction: column;
-            width: auto;
-        }
-        &-link {
-            display: inline-flex;
-            align-items: center;
-            flex-direction: row;
-            text-align: center;
-            color: white;
-            height: 30px;
-            cursor: pointer;
-            &:hover .footer__bloc-link__title {
-                text-decoration: underline;
-            }
-            & i {
-                margin-right: 7px;
-            }
-            &__title {
-                font-size: 16px;
-                font-weight: 400;
-            }
-        }
-    }
-}
+@import "./pages/restaurants/main";
+@import "./pages/restaurants/enteteResto";
+@import "./pages/restaurants/menu";

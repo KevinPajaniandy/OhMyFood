@@ -1,7 +1,7 @@
 
-nav {
-    @include w-h ( 100%, 50px);
-    @include flexbox-center();
+.loc {
+    @include w-h (100%, 50px);
+    @include flexbox-center;
     background-color: #EAEAEA;
 
     .fa-location-dot {
@@ -23,7 +23,7 @@ nav {
 
 .location {
     width: 100%;
-    @include flexbox-center();
+    @include flexbox-center;
     background: #EAEAEA;
     color: $iconback-color;
     

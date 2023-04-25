@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: "roboto", sans-serif;
+  box-sizing: border-box;
 }
 
 a {
@@ -34,49 +35,41 @@ header__logo {
   color: black;
 }
 
-/** Footer **/
-.footer {
+footer {
+  position: relative;
   width: 100%;
-  background-color: #353535;
+  height: auto;
+  background: #353535;
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.footer__bloc {
-  display: inline;
-  padding: 0 40px;
-  width: 100%;
-  max-width: 1200px;
-}
-.footer__bloc .logo {
-  font-family: "shrikhand", cursive;
-  font-size: 20px;
-  padding: 15px 0;
-  background-color: red;
-}
-.footer__bloc-links {
-  display: inline-flex;
   flex-direction: column;
-  width: auto;
 }
-.footer__bloc-link {
-  display: inline-flex;
-  align-items: center;
-  flex-direction: row;
-  text-align: center;
+footer .footer_info {
+  color: #FFF;
+  margin: 0 0 33px 0;
+  padding-left: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+footer .footer__logo {
+  font-family: "Shrikhand", cursive;
   color: white;
-  height: 30px;
-  cursor: pointer;
-}
-.footer__bloc-link:hover .footer__bloc-link__title {
-  text-decoration: underline;
-}
-.footer__bloc-link i {
-  margin-right: 7px;
-}
-.footer__bloc-link__title {
-  font-size: 16px;
+  font-family: Shrikhand;
+  font-size: 18px;
+  font-style: italic;
   font-weight: 400;
+  padding: 20px;
+}
+footer a {
+  text-decoration: none;
+  color: #FFF;
+  gap: 7px;
+}
+footer a i {
+  width: 32px;
+}
+footer a:hover {
+  text-decoration: underline;
 }
 
 /** Heart Card **/
@@ -111,7 +104,7 @@ header__logo {
   padding: 0;
 }
 
-nav {
+.loc {
   width: 100%;
   height: 50px;
   display: flex;
@@ -119,10 +112,10 @@ nav {
   align-items: center;
   background-color: #EAEAEA;
 }
-nav .fa-location-dot {
+.loc .fa-location-dot {
   color: #353535;
 }
-nav input {
+.loc input {
   text-align: center;
   width: 145px;
   height: 20px;
@@ -132,7 +125,7 @@ nav input {
   background-color: #EAEAEA;
   padding-left: 8px;
 }
-nav input::placeholder {
+.loc input::placeholder {
   color: #353535;
 }
 
@@ -234,7 +227,7 @@ nav input::placeholder {
   cursor: pointer;
   transition: 0.3s;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
-  background: white;
+  background: #f5edff;
 }
 .process__number {
   background: #9356DC;

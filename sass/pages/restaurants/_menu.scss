@@ -7,12 +7,11 @@
     border-radius: 25px 25px 0 0;
     background: #f6f6f6;
     &_title {
-        width: 100%;
         font-family: Shrikhand;
-        font-size: 28px;
+        font-size: 20px;
         font-weight: 400;
         line-height: 41px;    
-        margin: 0 17px;
+        @include flexbox-center
     }
 }
 
@@ -25,9 +24,6 @@
     .type {
         h2 {
             @include roboto( 16px, 300);
-            line-height: 19px;
-            letter-spacing: 0em;
-            text-align: left;
             width: 40px;
             padding-bottom: 10px;
             margin-bottom: 12px;
@@ -47,7 +43,7 @@
     overflow: hidden;
     &_title {
         width: 90%;
-        height: 55px;
+        height: 45px;
         padding: 12px 0 12px 10px;
         overflow: hidden;
         h3{
@@ -55,7 +51,6 @@
             white-space: nowrap;
             text-overflow: ellipsis;
             @include roboto (18px, 500);
-            line-height: 21px;
             margin: 0px;
             padding-left: 15px;
         }
@@ -64,11 +59,8 @@
             white-space: nowrap;
             text-overflow: ellipsis;
             @include roboto ( 15.04px, 300);
-            line-height: 18px;
-            letter-spacing: 0em;
-            text-align: left;
             padding-left: 15px;
-            margin-top:10px;
+            margin-top:5px;
         }
 
     }
@@ -102,6 +94,7 @@
             }
         }
     }
+
 }   
 
 .commander {
@@ -109,10 +102,20 @@
     justify-content:center;
     padding: 35px;
     &_button {
-
         @include button-style;
         &:hover {
             @include button-hover;
         }
+    }
+}
+
+.heart__container {
+    & i {
+        display: flex;
+        justify-content: center;
+        font-size: 28px;
+        margin-left: 335px;
+        margin-top: -61px;
+        
     }
 }

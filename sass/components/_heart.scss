@@ -1,29 +1,49 @@
 /** Heart Card **/
 
-.heart__container {
-    & i {
+.containerheart {
+    @include w-h(28px, 28px);
+
+
+    i {
+        @include w-h(28px, 28px);
         display: flex;
-        font-size: 28px;
-        margin-left: 285px;
-        margin-top: -42px;
-    }
-    & .heart__full {
-        background-image: $gradient;
-        background-clip: text;
-        -webkit-text-fill-color:transparent;
-        -webkit-background-clip: text;
-        opacity: 0;
-        margin-top: -28px;
+        font-size: 25px;
+        @include center;
+        position: absolute;
+        cursor: pointer;
     }
 
-    &:hover .heart__full {
+    .far {
+        transition: 1s;
+    }
+
+    .fas {
+        background-image: $gradient;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        opacity: 0;
+    }
+}
+
+.containerheart:hover {
+    .far {
+        opacity: 0;
+        font-size: 0;
+    }
+
+    .fas {
+        animation: heart .5s forwards;
         opacity: 1;
     }
-    & .heart__empty {
-        position: relative; 
-        &:hover {
-          opacity: 0;
-          transition: 0.6s;
-        }
-    }
+}
+
+.heartindex {
+    margin-left: 280px;
+    margin-top: -45px;
+
+}
+
+.heartpage{
+    margin-left: 20px;
 }

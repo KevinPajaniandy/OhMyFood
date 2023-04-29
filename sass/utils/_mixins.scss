@@ -13,6 +13,7 @@
     display: flex;
     flex-direction: column;
 }
+
 @mixin center {
     align-items: center;
     justify-content: center;
@@ -23,13 +24,18 @@
     height: $height;
 }
 
+@mixin roboto ($size: 16px, $weight: 500) {
+    font-size: $size;
+    font-weight: $weight;
+    font-family: 'Roboto', sans-serif;
+}
+
 @mixin button-hover {
     opacity: 0.8;
     cursor: pointer;
     transition: .3s;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.6);    
 }
-
 
 @mixin button-style {
     opacity: 1;
@@ -43,11 +49,5 @@
     width: 186px;
     align-items: center;
     justify-content: center;
-    
 }
 
-@mixin roboto ($size: 16px, $weight: 500) {
-    font-size: $size;
-    font-weight: $weight;
-    font-family: 'Roboto', sans-serif;
-}

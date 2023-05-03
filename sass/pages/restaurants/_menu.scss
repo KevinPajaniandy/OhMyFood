@@ -1,119 +1,133 @@
 .container_menu {
     position: relative;
-    margin-top: -41px;
-    padding-top: 32px;
-    margin-left: 193px;
-    margin-right: 193px;
+    margin-top: -40px;
+    margin-left: 0%;
+    margin-right: 0%;
     border-radius: 25px 25px 0 0;
     background: #f6f6f6;
 
-}
-   
-.titlerestaurants {
-    font-family: Shrikhand;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 41px;    
-    @include flexbox-center;
-}
+    @media screen and (min-width: 768px) {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 
+    .titlerestaurants {
+        @include flexbox-alignCenter;
+        justify-content: space-between;
+        padding: 20px;
+
+        h2 {
+            font-family: Shrikhand;
+            font-size: 28px;
+            font-weight: 400;
+            font-family: Shrikhand;
+            font-style: italic;
+        }
+        /** coeur pages restaurant **/
+    }
+}
 
 
 .container_menu_section {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 40px;
-    margin: 25px 13px 0 13px;
-    .type {
+    padding: 0 20px;
+
+    .typeMenu {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
         h2 {
-            @include roboto( 16px, 300);
+            @include roboto(16px, 300);
             width: 40px;
             padding-bottom: 10px;
             margin-bottom: 12px;
             border-bottom: 3px solid $third-color;
         }
-    }
-}
 
+        .menuItems {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
 
-.card_menu {
-    width: 634px;
-    margin: 0 0 12px 0;
-    background: #FFF;
-    border-radius: 25px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
-    display: flex;
-    justify-content: space-between;
-    overflow: hidden;
-    &_title {
-        width: 90%;
-        height: 45px;
-        padding: 12px 0 12px 10px;
-        overflow: hidden;
-        h3{
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            @include roboto (18px, 500);
-            margin: 0px;
-            padding-left: 15px;
-        }
-        p {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            @include roboto ( 15.04px, 300);
-            padding-left: 15px;
-            margin-top:5px;
-        }
+            .menuItem {
+                background: #fff;
+                border-radius: 15px;
+                box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+                display: flex;
+                flex-direction: row;
+                overflow: hidden;
 
-    }
-    .card_menu_price {
-        text-align: right;
-        width: 10%;
-        padding: 35px 10px 0 10px;
-    }
-    .checked {
-        width: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: $third-color;
-        border-radius: 0 25px 25px 0;
-        transform: scaleX(0);
-        transition: width 600ms 150ms ease-in-out;
-        transform-origin: right;
-        i {
-            color: #FFF;
-            display: none;
-        }
-    }
-    &:hover {
-        .checked {
-            width: 60px;
-            transform: scaleX(1);
-            i {
-                display: inline;
+                .title {
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    flex: 1;
+                    padding: 12px;
+
+                    h3 {
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        @include roboto(18px, 500);
+                        margin: 0px;
+                    }
+
+                    p {
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        @include roboto(15.04px, 300);
+                        margin: 0px;
+                    }
+                }
+
+                .price {
+                    height: 70px;
+                    width: 70px;
+                    @include roboto (15px,700);
+                    display: grid;
+                    justify-content: center;
+                    align-content: end;
+                    margin-top: -15px;
+                
+                }
+
+                .checked {
+                    height: 70px;
+                    width: 70px;
+                    margin-right: -70px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: $third-color;
+                    border-radius: 0 15px 15px 0;
+                    transform: scaleX(0);
+                    transition: width 600ms 150ms ease-in-out;
+                    transform-origin: right;
+
+                    i {
+                        color: #fff;
+                        display: none;
+                    }
+                }
+
+                &:hover {
+                    .checked {
+                        margin-right: 0px;
+                        transform: scaleX(1);
+                        transition: 0.5s;
+                        i {
+                            display: inline;
+                        }
+                    }
+                }
             }
         }
     }
-
-}   
-
-.commander {
-    display: flex;
-    justify-content:center;
-    padding: 35px;
-    &_button {
-        @include button-style;
-        &:hover {
-            @include button-hover;
-        }
-    }
 }
-
-
-
-

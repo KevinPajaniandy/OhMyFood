@@ -1,20 +1,14 @@
 /** Heart Card **/
 
 .containerheart {
-    @include w-h(28px, 28px);
-
+    @include w-h(30px, 30px);
+    @include center;
+    position: relative;
 
     i {
-        @include w-h(28px, 28px);
-        display: flex;
-        font-size: 25px;
-        @include center;
+        font-size: 24px;
         position: absolute;
         cursor: pointer;
-    }
-
-    .far {
-        transition: 1s;
     }
 
     .fas {
@@ -24,26 +18,18 @@
         -webkit-background-clip: text;
         opacity: 0;
     }
-}
 
-.containerheart:hover {
-    .far {
-        opacity: 0;
-        font-size: 0;
+    &:hover .heart_full {
+        opacity: 1;
+        transition: all 500ms ease-in-out;
     }
 
-    .fas {
-        animation: heart .5s forwards;
-        opacity: 1;
+    &:hover .heart_empty {
+        opacity: 0;
     }
 }
 
 .heartindex {
-    margin-left: 280px;
-    margin-top: -45px;
-
-}
-
-.heartpage{
-    margin-left: 20px;
+    bottom: 45px;
+    left: 270px;
 }

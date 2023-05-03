@@ -3,7 +3,11 @@
     justify-content: center;
     align-items: center;
 }
-
+@mixin flexbox-alignCenter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 @mixin flex-row {
     display: flex;
     flex-direction: row;
@@ -15,6 +19,7 @@
 }
 
 @mixin center {
+    display: flex;
     align-items: center;
     justify-content: center;
 }

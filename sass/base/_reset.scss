@@ -1,10 +1,18 @@
 
 body {
     margin: 0;
+    width: 100%;
     font-family: 'roboto', sans-serif;
-    box-sizing: border-box;
+    display: flex;
+   justify-content: center;
 }
-
+.main_container{
+    box-sizing: border-box;
+    max-width: 1440px;
+    min-width: 375px;
+    margin: 0;
+    width: 100%;
+}
 a {
     text-decoration: none;
     color: black;

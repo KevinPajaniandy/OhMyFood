@@ -1,14 +1,12 @@
 /** Bouton pages restaurant **/
-
-
-
 .commander {
     display: flex;
     justify-content:center;
     padding: 35px;
-    @include roboto ( 16px, 500);
+   
     &_button {
         @include button-style;
+        @include roboto ( 16px, 500);
         &:hover {
             @include button-hover;
         }

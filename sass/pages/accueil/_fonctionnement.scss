@@ -2,14 +2,18 @@
 /** process**/
 
 .process {
-    padding: 20px 20px 40px 20px;
+    padding: 40px 20px 40px 20px;
+   @media screen and (min-width: 768px) {
+        padding: 40px 50px 40px 50px;
+    
+    }
     background-color: #FFFFFF;
     @include flex-column;
     gap: 25px;
     &__title {
         @include roboto(24px,700);
         @media screen and (min-width: 768px) {
-        padding: 30px 0 0 100px;
+        
     }
 }
     &__steps {
@@ -19,8 +23,8 @@
         gap: 20px;
         @media screen and (min-width: 768px) {
             flex-direction: row;
-            gap: 30px;
-            justify-content: center;
+            gap: unset;
+            justify-content: space-between;
         }
         .process__step {
         display: flex;

@@ -3,16 +3,17 @@
 
 .restaurants__contain {
 
-    padding: 20px 20px;
+    padding: 40px 20px 40px 20px;
     background: #fafafa;
     @include flex-column;
     gap: 20px;
+    @media screen and (min-width: 768px) {
+        padding: 40px 50px 40px 50px;
+    
+    }
     h2 {
-        
+      
         @include roboto(24px,700);
-        @media screen and (min-width: 768px) {
-            margin-left: 100px;
-        }
     }
 
 
@@ -24,11 +25,21 @@
     gap: 20px;
 
     @media screen and (min-width: 768px) {
-        flex-direction: row;
-        gap: 30px;
+        flex-direction: column;
+        gap: 50px;
     }
 }
 
+.cards_container{
+    @include w-h(100%,auto);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        gap:50px;
+    }
 .card__resto{
     @include w-h(100%,251px);
     border-radius: 25px;
@@ -92,5 +103,5 @@
                           
 }
  
-
+}
 }

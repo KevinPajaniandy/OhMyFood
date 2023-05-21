@@ -1,7 +1,17 @@
 body {
   margin: 0;
+  width: 100%;
   font-family: "roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.main_container {
   box-sizing: border-box;
+  max-width: 1440px;
+  min-width: 375px;
+  margin: 0;
+  width: 100%;
 }
 
 a {
@@ -119,28 +129,29 @@ footer a:hover {
   display: flex;
   justify-content: center;
   padding: 35px;
-  font-size: 16px;
-  font-weight: 500;
-  font-family: "Roboto", sans-serif;
 }
 .commander_button {
-  opacity: 1;
-  background: linear-gradient(180deg, rgb(255, 121, 218) 0%, rgb(147, 86, 220) 100%);
+  background: linear-gradient(to bottom right, rgb(255, 121, 218), rgb(147, 86, 220));
   color: white;
+  font-weight: bold;
+  font-size: 13px;
   padding: 0 20px;
   border-radius: 200px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 4px 8px 0px rgba(0, 0, 0, 0.3);
   display: flex;
   height: 50px;
   width: 186px;
   align-items: center;
   justify-content: center;
+  transition: all 400ms linear;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
 }
 .commander_button:hover {
-  opacity: 0.8;
   cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
+  box-shadow: 1px 4px 8px 0px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(to bottom right, rgb(147, 86, 220), rgb(255, 121, 218));
 }
 
 /** Heart Card **/
@@ -255,42 +266,43 @@ footer a:hover {
   padding: 15px;
 }
 .hero__button {
-  opacity: 1;
-  background: linear-gradient(180deg, rgb(255, 121, 218) 0%, rgb(147, 86, 220) 100%);
+  background: linear-gradient(to bottom right, rgb(255, 121, 218), rgb(147, 86, 220));
   color: white;
+  font-weight: bold;
+  font-size: 13px;
   padding: 0 20px;
   border-radius: 200px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 4px 8px 0px rgba(0, 0, 0, 0.3);
   display: flex;
   height: 50px;
   width: 186px;
   align-items: center;
   justify-content: center;
+  transition: all 400ms linear;
 }
 .hero__button:hover {
-  opacity: 0.8;
   cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
+  box-shadow: 1px 4px 8px 0px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(to bottom right, rgb(147, 86, 220), rgb(255, 121, 218));
 }
 
 /** process**/
 .process {
-  padding: 20px 20px 40px 20px;
+  padding: 40px 20px 40px 20px;
   background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
+@media screen and (min-width: 768px) {
+  .process {
+    padding: 40px 50px 40px 50px;
+  }
+}
 .process__title {
   font-size: 24px;
   font-weight: 700;
   font-family: "Roboto", sans-serif;
-}
-@media screen and (min-width: 768px) {
-  .process__title {
-    padding: 30px 0 0 100px;
-  }
 }
 .process__steps {
   display: flex;
@@ -301,8 +313,8 @@ footer a:hover {
 @media screen and (min-width: 768px) {
   .process__steps {
     flex-direction: row;
-    gap: 30px;
-    justify-content: center;
+    gap: unset;
+    justify-content: space-between;
   }
 }
 .process__steps .process__step {
@@ -317,10 +329,9 @@ footer a:hover {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.16);
 }
 .process__steps .process__step:hover {
-  opacity: 0.8;
   cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.6);
+  box-shadow: 1px 4px 8px 0px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(to bottom right, rgb(147, 86, 220), rgb(255, 121, 218));
   background: #f5edff;
 }
 .process__steps .process__step .process__number {
@@ -351,21 +362,21 @@ footer a:hover {
 
 /** Restaurants **/
 .restaurants__contain {
-  padding: 20px 20px;
+  padding: 40px 20px 40px 20px;
   background: #fafafa;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+@media screen and (min-width: 768px) {
+  .restaurants__contain {
+    padding: 40px 50px 40px 50px;
+  }
+}
 .restaurants__contain h2 {
   font-size: 24px;
   font-weight: 700;
   font-family: "Roboto", sans-serif;
-}
-@media screen and (min-width: 768px) {
-  .restaurants__contain h2 {
-    margin-left: 100px;
-  }
 }
 .restaurants__contain .container__card__resto {
   display: flex;
@@ -375,11 +386,25 @@ footer a:hover {
 }
 @media screen and (min-width: 768px) {
   .restaurants__contain .container__card__resto {
-    flex-direction: row;
-    gap: 30px;
+    flex-direction: column;
+    gap: 50px;
   }
 }
-.restaurants__contain .card__resto {
+.restaurants__contain .cards_container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+@media screen and (min-width: 768px) {
+  .restaurants__contain .cards_container {
+    flex-direction: row;
+    gap: 50px;
+  }
+}
+.restaurants__contain .cards_container .card__resto {
   width: 100%;
   height: 251px;
   border-radius: 25px;
@@ -387,32 +412,32 @@ footer a:hover {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
 }
 @media screen and (min-width: 768px) {
-  .restaurants__contain .card__resto {
+  .restaurants__contain .cards_container .card__resto {
     width: 100%;
     height: 200px;
   }
 }
-.restaurants__contain .card__resto:hover {
+.restaurants__contain .cards_container .card__resto:hover {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
 }
-.restaurants__contain .card__resto a {
+.restaurants__contain .cards_container .card__resto a {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
-.restaurants__contain .card__resto a .img {
+.restaurants__contain .cards_container .card__resto a .img {
   width: 100%;
   height: 70%;
   position: relative;
 }
-.restaurants__contain .card__resto a .img img {
+.restaurants__contain .cards_container .card__resto a .img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 25px 25px 0 0;
 }
-.restaurants__contain .card__resto a .img p {
+.restaurants__contain .cards_container .card__resto a .img p {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -425,7 +450,7 @@ footer a:hover {
   text-align: center;
   padding: 3px 5px;
 }
-.restaurants__contain .card__resto a .details {
+.restaurants__contain .cards_container .card__resto a .details {
   width: 100%;
   height: 30%;
   display: flex;
@@ -433,27 +458,27 @@ footer a:hover {
   align-items: center;
   justify-content: space-between;
 }
-.restaurants__contain .card__resto a .details .card__resto__info {
+.restaurants__contain .cards_container .card__resto a .details .card__resto__info {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   padding-left: 20px;
 }
-.restaurants__contain .card__resto a .details .card__resto__info h3 {
+.restaurants__contain .cards_container .card__resto a .details .card__resto__info h3 {
   font-size: 18px;
   font-weight: 700;
   font-family: "Roboto", sans-serif;
   line-height: 21px;
   color: #353535;
 }
-.restaurants__contain .card__resto a .details .card__resto__info p {
+.restaurants__contain .cards_container .card__resto a .details .card__resto__info p {
   font-size: 17px;
   font-weight: 300;
   font-family: "Roboto", sans-serif;
   line-height: 25px;
   color: #353535;
 }
-.restaurants__contain .card__resto a .details .heartindex {
+.restaurants__contain .cards_container .card__resto a .details .heartindex {
   padding-right: 20px;
 }
 

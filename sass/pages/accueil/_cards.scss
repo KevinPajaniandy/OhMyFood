@@ -2,72 +2,95 @@
 /** Restaurants **/
 
 .restaurants__contain {
-    @include w-h(100%,auto);
+
+    padding: 20px 20px;
     background: #fafafa;
-    padding-bottom: 64px;
-    @include roboto(17px,300);
+    @include flex-column;
+    gap: 20px;
     h2 {
-        padding: 48px 0 20px 0;
-        margin-left: 20px;
+        
         @include roboto(24px,700);
+        @media screen and (min-width: 768px) {
+            margin-left: 100px;
+        }
     }
-}
+
 
 .container__card__resto {
-    @include w-h(375px,auto);
+   
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        gap: 30px;
+    }
 }
 
-.card__resto {
-    position: relative;
-    @include w-h(90%,251px);
+.card__resto{
+    @include w-h(100%,251px);
     border-radius: 25px;
     background: #FFF;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-    text-decoration: none;
-    color: black;
+    @media screen and (min-width: 768px) {
+        @include w-h(100%,200px);
+    }
     &:hover {
         box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);
     }
-    &__info {
-        h3 {
-            @include roboto(18px,700);
-            line-height: 21px;
-            color: #353535;
+     a{
+        @include w-h(100%,100%);
+        @include flex-column;
+       .img{
+        @include w-h(100%,70%);
+        position: relative;
+        img{
+            @include w-h(100%,100%);
+            object-fit: cover;
+            border-radius: 25px 25px 0 0;
+        
         }
-        p {
-            @include roboto(17px,300);
-            line-height: 25px;
-            color: #353535;
+        p{
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: $third-color;
+            color: darken($color: $third-color, $amount: 40);
+            border-radius: 2px 2px 2px 2px;
+            @include roboto(14px,500);
+            text-align: center;
+            padding: 3px 5px;
         }
-    }
-    &__img{
-        @include w-h(100%,174px);
-        border-radius: 25px 25px 0 0;
-        object-fit: cover;
-    }
-    &__info {
-        @include w-h(80%,auto);
-        padding: 12px 0 0 13px;
-        h3, p {
-            margin: 0;
+       }
+                            
+       .details{
+        @include w-h(100%,30%);
+        @include flexbox-alignCenter;
+        justify-content: space-between;
+        .card__resto__info{
+            @include flex-column;
+            justify-content: space-around;
+            padding-left: 20px;
+            h3 {
+                @include roboto(18px,700);
+                line-height: 21px;
+                color: #353535;
+            }
+            p {
+                @include roboto(17px,300);
+                line-height: 25px;
+                color: #353535;
+            }
         }
-    }
-    &__new {
-        background: $third-color;
-        color: darken($color: $third-color, $amount: 40);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-        border-radius: 2px 2px 2px 2px;
-        @include w-h(80px,29px);
-        @include flexbox-center;
-        @include roboto(14px,500);
-        position: absolute;
-        margin: 0;
-        right: 15px;
-        top: 15px
-    }
+         .heartindex {
+             padding-right: 20px;
+         }
+        }
+       }
+                          
 }
+ 
 
+}

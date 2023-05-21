@@ -40,20 +40,24 @@
     width: 100%;
     &__container {
         width: 100%;
-        padding: 20px;
         @include flexbox-center;
         flex-direction: column;
         padding: 50px 0;
+        gap: 10px;
     }
     &__title {
         text-align: center;
-        max-width: 250px;
         margin: 0;
+        max-width: 250px;
+        @include roboto(24px, 700);
+        @media screen and (min-width: 768px) {
+            @include roboto (40px, 700);
+            max-width: 1440px;
+        } 
     }
     &__text {
         text-align: center;
-        @include roboto(16px, 300);
-        max-width: 420px;
+        @include roboto(18px, 300);
         padding: 15px;
     }
     &__button {

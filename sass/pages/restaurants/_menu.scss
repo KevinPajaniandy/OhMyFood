@@ -32,6 +32,7 @@
     flex-direction: column;
     gap: 40px;
     padding: 0 20px;
+    
 
     .typeMenu {
         display: flex;
@@ -51,6 +52,8 @@
             flex-direction: column;
             gap: 10px;
 
+           
+
             .menuItem {
                 background: #fff;
                 border-radius: 15px;
@@ -58,6 +61,12 @@
                 display: flex;
                 flex-direction: row;
                 overflow: hidden;
+                @for $i from 1 through 4 {
+                    &:nth-child(#{$i}){
+                        animation-delay: .5s*$i;
+                    }
+                }
+                animation: happen 1.5s both;
 
                 .title {
                     white-space: nowrap;

@@ -25,6 +25,7 @@
     gap: 20px;
 
     @media screen and (min-width: 768px) {
+        width: 100%;
         flex-direction: column;
         gap: 50px;
     }
@@ -38,7 +39,9 @@
     gap: 20px;
     @media screen and (min-width: 768px) {
         flex-direction: row;
-        gap:50px;
+        gap: 55px;
+        display: flex;
+        justify-content: center;
     }
 .card__resto{
     @include w-h(100%,251px);
@@ -46,7 +49,7 @@
     background: #FFF;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
     @media screen and (min-width: 768px) {
-        @include w-h(100%,200px);
+        @include w-h(490px,250px);
     }
     &:hover {
         box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.35);

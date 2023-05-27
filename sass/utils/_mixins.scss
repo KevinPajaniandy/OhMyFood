@@ -1,60 +1,283 @@
 @mixin flexbox-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 @mixin flexbox-alignCenter {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
+
 @mixin flex-row {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 @mixin flex-column {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 @mixin center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @mixin w-h ($width: 0, $height: 0) {
-    width: $width;
-    height: $height;
+  width: $width;
+  height: $height;
 }
 
 @mixin roboto ($size: 16px, $weight: 500) {
-    font-size: $size;
-    font-weight: $weight;
-    font-family: 'Roboto', sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  font-family: 'Roboto', sans-serif;
 }
 
 @mixin button-hover {
-    cursor: pointer;
-    box-shadow: 1px 4px 8px 0px rgba(0,0,0,0.6); 
-    background: linear-gradient(to bottom right,rgb(147, 86, 220) , rgb(255, 121, 218) );   
+  cursor: pointer;
+  box-shadow: 1px 4px 8px 0px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(to bottom right, rgb(147, 86, 220), rgb(255, 121, 218));
 }
 
 @mixin button-style {
 
-    background: linear-gradient(to bottom right, rgb(255, 121, 218) , rgb(147, 86, 220) );
-    color: white;
-    font-weight: bold;
-    font-size: 13px;
-    padding: 0 20px;
-    border-radius: 200px;
-    box-shadow: 1px 4px 8px 0px rgba(0,0,0,0.3);  
-    display: flex ;
-    height: 50px;
-    width: 186px;
-    align-items: center;
-    justify-content: center;
-    transition: all 400ms linear;
+  background: linear-gradient(to bottom right, rgb(255, 121, 218), rgb(147, 86, 220));
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 0 20px;
+  border-radius: 200px;
+  box-shadow: 1px 4px 8px 0px rgba(0, 0, 0, 0.3);
+  display: flex;
+  height: 50px;
+  width: 186px;
+  align-items: center;
+  justify-content: center;
+  transition: all 400ms linear;
 }
 
+
+
+
+
+
+
+
+
+
+/** Keyframes animation restaurants **/
+
+@keyframes happen {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+// keyframes loader // 
+
+@keyframes disappear {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.loader {
+  $animation-duration: 1s;
+  $animation-count: 2;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  height: 100vh;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.9;
+  animation: disappear 200ms $animation-duration*$animation-count forwards;
+  //transform-origin: top;
+
+  &::after {
+    content: "";
+    height: 100px;
+    width: 100px;
+    border-right:5px solid transparent;
+    border-left:5px solid transparent;
+    border-top: 5px solid #FF79DA;
+    border-bottom: 5px solid #99E2D0;
+    border-radius: 50%;
+    animation: spin $animation-duration infinite ease-in-out;
+    animation-iteration-count: 2;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+.loader {
+  position: absolute;
+  background-color: #FFFFFF;
+  overflow: visible;
+  height: 100vh;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.9;
+  overflow: visible;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  animation: disappear 200ms 3.7s forwards;
+  transition: opacity 0.3s, height 0.3s;
+
+  div {
+    position: absolute;
+    width: 100vh;
+    height: 100vh;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Helvetica, Arial, sans-serif;
+    animation: move 3.5s linear infinite;
+    -o-animation: move 3.5s linear infinite;
+    -moz-animation: move 3.5s linear infinite;
+    -webkit-animation: move 3.5s linear infinite;
+    transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    color: #9356DC;
+    font-size: 40px;
+
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+      -o-animation-delay: 0.2s;
+      -moz-animation-delay: 0.2s;
+      -webkit-animation-delay: 0.2s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.4s;
+      -o-animation-delay: 0.4s;
+      -webkit-animation-delay: 0.4s;
+      -webkit-animation-delay: 0.4s;
+    }
+
+    &:nth-child(4) {
+      animation-delay: 0.6s;
+      -o-animation-delay: 0.6s;
+      -moz-animation-delay: 0.6s;
+      -webkit-animation-delay: 0.6s;
+    }
+
+    &:nth-child(5) {
+      animation-delay: 0.8s;
+      -o-animation-delay: 0.8s;
+      -moz-animation-delay: 0.8s;
+      -webkit-animation-delay: 0.8s;
+    }
+
+    &:nth-child(6) {
+      animation-delay: 1s;
+      -o-animation-delay: 1s;
+      -moz-animation-delay: 1s;
+      -webkit-animation-delay: 1s;
+    }
+
+    &:nth-child(7) {
+      animation-delay: 1.2s;
+      -o-animation-delay: 1.2s;
+      -moz-animation-delay: 1.2s;
+      -webkit-animation-delay: 1.2s;
+    }
+
+    &:nth-child(8) {
+      animation-delay: 1.4s;
+      -o-animation-delay: 1.4s;
+      -moz-animation-delay: 1.4s;
+      -webkit-animation-delay: 1.4s;
+    }
+  }
+}
+
+@keyframes move {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+
+  35% {
+    left: 41%;
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+
+  65% {
+    left: 59%;
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    left: 100%;
+    -moz-transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    opacity: 0;
+  }
+}
+
+
+@keyframes disappear {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+
+}
+*/

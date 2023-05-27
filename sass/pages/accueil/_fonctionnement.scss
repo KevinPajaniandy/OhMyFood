@@ -23,8 +23,8 @@
         gap: 20px;
         @media screen and (min-width: 768px) {
             flex-direction: row;
-            gap: unset;
-            justify-content: space-between;
+            gap: 35px;
+            justify-content: center;
         }
         .process__step {
         display: flex;

@@ -1,5 +1,4 @@
 /** Heart Card **/
-
 .containerheart {
     @include w-h(30px, 30px);
     @include center;
@@ -10,21 +9,41 @@
         position: absolute;
         cursor: pointer;
     }
-
+    .far{
+        z-index: 2;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+        &:hover{
+            opacity: 0;
+            z-index: 1;
+            + .fas{
+                opacity: 1;
+                z-index: 2;
+                animation: heartfull 0.5s linear both;
+            }
+        }
+    }
+    
     .fas {
         background-image: $gradient;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+        background-clip: content-box;
         -webkit-background-clip: text;
+        -moz-background-clip: text;
+        color: transparent;
+        z-index: 1;
         opacity: 0;
+        transform-origin: 50% bottom;
+        transform: scale(1);
+        animation: transform 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) ;
     }
+}
 
-    &:hover .heart_full {
-        opacity: 1;
-        transition: all 500ms ease-in-out;
+@keyframes heartfull {
+    0%{
+        transform: scale(0);
     }
-
-    &:hover .heart_empty {
-        opacity: 0;
+   
+    100%{
+        transform: scale(1);
     }
 }

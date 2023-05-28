@@ -38,7 +38,13 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
-
+        animation: happen 0.6s both;
+                
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}){
+                animation-delay: .5s*$i;
+            }
+        }
         h2 {
             @include roboto(16px, 300);
             width: 40px;
@@ -61,12 +67,12 @@
                 display: flex;
                 flex-direction: row;
                 overflow: hidden;
+                animation: happen 1.5s both;
                 @for $i from 1 through 4 {
                     &:nth-child(#{$i}){
                         animation-delay: .5s*$i;
                     }
                 }
-                animation: happen 1.5s both;
 
                 .title {
                     white-space: nowrap;
@@ -139,3 +145,18 @@
         }
     }
 }
+
+
+/** Keyframes animation restaurants **/
+@keyframes happen {
+    0% {
+      opacity: 0;
+      transform:translateY(50%);
+    }
+  
+    100% {
+      opacity: 1;
+      transform:translateY(0%);
+    }
+  }
+  

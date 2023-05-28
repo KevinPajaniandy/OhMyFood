@@ -9,8 +9,9 @@
 @import "./components/button";
 @import "./components/heart";
 
+@import "./animation/loader";
+
 @import "./pages/accueil/main";
 @import "./pages/accueil/enteteAccueil";
 @import "./pages/accueil/fonctionnement";
 @import "./pages/accueil/cards";
-@import "./utils/animation";

@@ -358,7 +358,7 @@ footer a:hover {
 }
 @media screen and (min-width: 768px) {
   .process {
-    padding: 40px 50px 40px 50px;
+    padding: 40px 10% 40px 10%;
   }
 }
 .process__title {
